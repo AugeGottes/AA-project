@@ -15,7 +15,7 @@ def main():
         log.write(str(v1))
         log.write(", ")
         log.write(str(v2))
-    print(str(v2),str(v1))
+    print(str(v1),str(v2))
 
 if __name__ == "__main__":
     main()
