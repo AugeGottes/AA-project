@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 import generator
 from time import perf_counter
 import math
-const=10000000
-start = perf_counter()
+
 
 def RightTurn(p1, p2, p3):
 	if (p3[1]-p1[1])*(p2[0]-p1[0]) >= (p2[1]-p1[1])*(p3[0]-p1[0]):
@@ -33,9 +32,11 @@ def GrahamScan(P):
 	L = L_upper + L_lower		
 	return np.array(L)
 
-def main():
-	
-	P = generator.P
+def main(P=None):
+	start = perf_counter()
+	const=1
+	if P == None:
+		P = generator.P
     
 	L = GrahamScan(P)
     
@@ -48,8 +49,14 @@ def main():
 	plt.plot(P[:,0],P[:,1],".r")
 	plt.axis('off')
 	plt.show()
-end = perf_counter()
-execution_time = (end - start)
-print((execution_time)*const)
+	end = perf_counter()
+	execution_time = (end - start)
+	return ((execution_time)*const)
+	
+
+
+
+
+
 if __name__ == '__main__':
 	main()
